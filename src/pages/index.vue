@@ -1,10 +1,5 @@
 <template>
-  <!-- <HelloWorld /> -->
   <v-app-bar :elevation="1" rounded>
-    <!-- <template v-slot:prepend>
-    <v-app-bar-nav-icon></v-app-bar-nav-icon>
-  </template> -->
-
     <v-app-bar-title>Piutang Unit</v-app-bar-title>
   </v-app-bar>
   <v-breadcrumbs :items="items">
@@ -317,14 +312,8 @@ let datas = reactive([
     status: "Konfirmasi Pembayaran",
   },
 ]);
-let tempDatas = [];
-const saveTemp = () => {
-  tempDatas = datas;
-};
 
-// saveTemp();
 const bayar = () => {
-  console.log(selected.value[0].id);
   const selectedId = selected.value[0].id;
   const filter = datas.map((item) => {
     if (item.id === selectedId) {
@@ -332,20 +321,10 @@ const bayar = () => {
     }
     return { ...item };
   });
-  // console.log(filter);
   datas = filter;
 };
 
 const refresh = () => {
-  // console.log(selected.value[0].id);
-  // const selectedId = selected.value[0].id;
-  // const filter = datas.map((item) => {
-  //   if (item.id === selectedId) {
-  //     item.status = "Lunas";
-  //   }
-  //   return { ...item };
-  // });
-  // console.log(filter);
-  datas = tempDatas;
+  window.location.reload();
 };
 </script>
